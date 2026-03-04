@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>3 de Marzo - Acceso Protegido</title>
+    <style>
+        /* Estilo para ocultar el contenido inicialmente */
+        #contenido-protegido {
+            display: none;
+        }
+
+        body {
+            background-color: #1a1a1a; /* Fondo muy oscuro antes de entrar */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Georgia', serif;
+        }
+
+        .piedra {
+            background: #d2c9b8;
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.8), inset 0 0 20px rgba(0,0,0,0.2);
+            text-align: center;
+            max-width: 500px;
+            border: 2px solid #b5ad9f;
+            animation: aparecer 2s ease; /* Animación de entrada */
+        }
+
+        
+        @keyframes aparecer {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        h1 { color: #5d5448; letter-spacing: 4px; border-bottom: 1px solid #b5ad9f; display: inline-block; }
+        p { color: #4a433a; font-size: 1.8rem; font-style: italic; }
+        .decoracion { font-size: 2rem; color: #8e8372; margin: 10px 0; }
+    </style>
+</head>
+<body>
+
+    <div id="contenido-protegido" class="piedra">
+        <div class="decoracion">?</div>
+        <h1>MARZO</h1>
+        <p>"Que el amanecer de este 3 de marzo te inspire a perseguir tus sueños con pasión"</p>
+        <div class="decoracion">?</div>
+        
+        <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/VN5VuGSq16g?si=RB-DfTGY9XBQRj2t"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen>
+        </iframe>
+        </div>
+    </div>
+
+    <script>
+        // Configura aquí tu contraseña de 6 dígitos
+        const PIN_CORRECTO = "120304";
+
+        // Pedir la contraseña al cargar la página
+        let intento = prompt("escribe tu fecha de nacimiento (dia mes año):");
+
+        if (intento === PIN_CORRECTO) {
+            // Si es correcto, mostramos la piedra y cambiamos el fondo
+            document.getElementById("contenido-protegido").style.display = "block";
+            document.body.style.backgroundColor = "#2c2c2c";
+        } else {
+            // Si es incorrecto, avisamos y dejamos la pantalla oscura
+            alert("PIN incorrecto. El mensaje permanece oculto.");
+            document.body.innerHTML = "<h1 style='color:white; text-align:center;'>Acceso Denegado</h1>";
+        }
+    </script>
+
+</body>
+</html>
